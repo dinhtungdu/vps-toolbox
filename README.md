@@ -1,4 +1,4 @@
 # vps-toolbox
 ===
 
-Small tool for easy manage and secure VPS w/ Wordpress Mutiple Sites
+Small tool for easy manage and secure VPS w/ Wordpress Multiple Sites
