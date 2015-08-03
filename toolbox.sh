@@ -152,7 +152,7 @@ elif [ "$choice" -eq "4" ]; then
 		echo -e "Wrong choice!"
 	fi
 elif [ "$choice" -eq "5" ]; then
-	cd /home/$web/public_html
+	chmod 750 /home/$web/public_html
 	find /home/$web/public_html/* -type d -print0 | xargs -0 chmod 0750
 	find /home/$web/public_html/* -type f -print0 | xargs -0 chmod 0640
 	chmod 400 /home/$web/public_html/wp-config.php
