@@ -9,7 +9,8 @@ get_owner_group() {
     exit 1
   fi
 }
-
+# website=
+ls -d *.*[a-z]/
 echo -e "Input the website: \c "
 read web
 
