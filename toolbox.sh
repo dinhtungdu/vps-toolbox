@@ -155,7 +155,15 @@ elif [ "$choice" -eq "5" ]; then
 	chmod 750 /home/$web/public_html
 	find /home/$web/public_html/* -type d -print0 | xargs -0 chmod 0750
 	find /home/$web/public_html/* -type f -print0 | xargs -0 chmod 0640
-	chmod 400 /home/$web/public_html/wp-config.php
+	if [ -f /home/$web/public_html/wp-config.php  ];
+	then
+	  chmod 400 /home/$web/public_html/wp-config.php
+	elif [ -f /home/$web/public_html/library/config.php  ];
+	then
+	  chmod 400 /home/$web/public_html/library/config.php
+	else
+	  echo "Config file for this type of website hasn't added yet."
+	fi
 	chown -R $owner /home/$web/public_html/*
 else
 	echo -e "Wrong choice!"
