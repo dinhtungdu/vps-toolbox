@@ -10,6 +10,7 @@ get_owner_group() {
   fi
 }
 # website=
+cd /home/
 ls -d *.*[a-z]/
 echo -e "Input the website: \c "
 read web
