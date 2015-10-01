@@ -35,9 +35,10 @@ if [ "$choice" -eq "1" ]; then
 	mv wp-config.php wp-content/
 	mv robots.txt wp-content/
 	mv wp-content/ ..
-	rm -rf *
-	wget https://wordpress.org/latest.zip
-	unzip *.zip
+	rm -rf wp-admin/
+	rm -rf wp-includes/
+	wget https://wordpress.org/latest.zip -O latest.zip
+	unzip -o latest.zip
 	rm -rf wordpress/wp-content/
 	mv wordpress/* .
 	rm -rf wordpress/
@@ -57,9 +58,10 @@ elif [ "$choice" -eq "2" ]; then
 	mv wp-config.php wp-content/
 	mv robots.txt wp-content/
 	mv wp-content/ ..
-	rm -rf *
-	wget https://wordpress.org/latest.zip
-	unzip *.zip
+	rm -rf wp-admin/
+	rm -rf wp-includes/
+	wget https://wordpress.org/latest.zip -O latest.zip
+	unzip -o latest.zip
 	rm -rf wordpress/wp-content/
 	mv wordpress/* .
 	rm -rf wordpress/
