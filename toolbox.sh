@@ -31,19 +31,21 @@ echo -e "Your choice: \c"
 read choice
 
 if [ "$choice" -eq "1" ]; then
+	cd /home/$web/
+	wget https://wordpress.org/latest.zip -O latest.zip
 	cd /home/$web/public_html
 	mv wp-config.php wp-content/
 	mv robots.txt wp-content/
 	mv wp-content/ ..
 	rm -rf wp-admin/
 	rm -rf wp-includes/
-	wget https://wordpress.org/latest.zip -O latest.zip
+	mv ../latest.zip .
 	unzip -o latest.zip
 	rm -rf wordpress/wp-content/
 	mv wordpress/* .
 	rm -rf wordpress/
-	rm -f latest.zip
 	mv ../wp-content/ .
+	rm -f ../latest.zip
 	mv wp-content/robots.txt .
 	mv wp-content/wp-config.php .
 	chown -R $owner *
@@ -54,19 +56,21 @@ if [ "$choice" -eq "1" ]; then
 	echo -e "Done update Wordpress!"
 
 elif [ "$choice" -eq "2" ]; then
+	cd /home/$web/
+	wget https://wordpress.org/latest.zip -O latest.zip
 	cd /home/$web/public_html
 	mv wp-config.php wp-content/
 	mv robots.txt wp-content/
 	mv wp-content/ ..
 	rm -rf wp-admin/
 	rm -rf wp-includes/
-	wget https://wordpress.org/latest.zip -O latest.zip
+	mv ../latest.zip .
 	unzip -o latest.zip
 	rm -rf wordpress/wp-content/
 	mv wordpress/* .
 	rm -rf wordpress/
-	rm -f latest.zip
 	mv ../wp-content/ .
+	rm -f ../latest.zip
 	mv wp-content/robots.txt .
 	mv wp-content/wp-config.php .
 	updatemsg="Update plugins status:\n"
@@ -142,16 +146,7 @@ elif [ "$choice" -eq "4" ]; then
 			find $plugin/* -type f -print0 | xargs -0 chmod 0640
 		fi
 	elif [ "$choice_4" -eq "2" ]; then
-		echo -e "Input the URL of plugin: \c"
-		read plugin_url
-		wget $plugin_url
-		plugin_name=$(basename "$plugin")
-		unzip ${plugin_name}.zip
-		rm -f ${plugin_name}.zip
-		chown -R $owner $plugin_name
-		chmod 750 $plugin_name
-		find $plugin_name/* -type d -print0 | xargs -0 chmod 0750
-		find $plugin_name/* -type f -print0 | xargs -0 chmod 0640
+		echo -e "Function is not avaiable this time!"
 	else
 		echo -e "Wrong choice!"
 	fi
